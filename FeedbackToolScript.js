@@ -34,14 +34,7 @@
             $("#warning").addClass("hidden");
         }
     });
-    $('#gc-pg-hlpfl-frm').validate({
-        rules: {
-            details: {
-                sinCA: true,
-                required: true
-            }
-        }
-    });
+ 
     $document.on("timerpoke.wb " + initEvent, selector, init);
     wb.add(selector);
 })(jQuery, window, wb);

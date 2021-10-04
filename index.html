@@ -1,7 +1,4 @@
----
-title: Feedback Form
-script: FeedbackToolScript.js
----
+--- title: Feedback Form script: FeedbackToolScript.js ---
 <!-- START PAGE FEEDBACK WIDGET -->
 <div class="row row-no-gutters mrgn-tp-xl">
     <div class="col-sm-7 col-lg-6">
@@ -67,13 +64,13 @@ script: FeedbackToolScript.js
                         </label>
                             </div>
                         </fieldset>
-                        <label for="problem6" class="mrgn-bttm-0">Please provide more details</label>
+                        <label for="details" class="mrgn-bttm-0">Please provide more details</label>
                         <p class="small">
                             <strong>You will not receive a reply. Telephone numbers and email addresses will be removed.</strong>
                             <br/>
                             <span class="small">Maximum 300 characters</span>
                         </p>
-                        <textarea id="problem6" name="details" class="full-width" maxlength="300"></textarea>
+                        <textarea id="details" name="details" class="full-width" maxlength="300" required="required" data-rule-sinCA="true"></textarea>
                         <div class="alert alert-danger hidden" id="warning">
                             <p> You will not receive a reply. Telephone numbers and email addresses will be removed. </p>
                         </div>

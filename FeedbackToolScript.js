@@ -19,28 +19,12 @@
                 wb.ready($elm, componentName);
             }
         };
-    $document.on("click", selector + " #btnno", function() {
-        $(".gc-pg-hlpfl-no").removeClass("nojs-show");
-        $(".gc-pg-hlpfl-btn").addClass("hide");
-        $("#helpful").val("No");
-    })
-    $document.on("submit", selector + " #gc-pg-hlpfl-frm", function(event) {
-        var elm = event.currentTarget,
-            $elm = $(elm);
-        event.preventDefault();
-        $(".gc-pg-hlpfl-thnk").removeClass("hide");
-        $elm.addClass("hide nojs-show");
-        $.ajax({
-            url: "https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm",
-            type: "POST",
-            dataType: "text",
-            data: $elm.serialize(),
-            success: function(data) {},
-            error: function(xhr, status, err) {
-                console.log(xhr.responseText);
-            }
-        });
-    });
+
+    $.validator.addMethod("sinCA", function(sin_number, element) {
+        return this.optional(element) || sin_number.length >= 9 &&
+            sin_number.match(/(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/);
+    }, "Please remove your SIN number.");
+
 
     $document.on("keyup", selector + " textarea", function(event) {
         var textValue = event.target.value;
@@ -50,6 +34,7 @@
             $("#warning").addClass("hidden");
         }
     });
+
     $document.on("timerpoke.wb " + initEvent, selector, init);
     wb.add(selector);
 })(jQuery, window, wb);

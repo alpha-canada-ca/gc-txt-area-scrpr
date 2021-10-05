@@ -20,10 +20,13 @@
             }
         };
 
-    $.validator.addMethod("sinCA", function(sin_number, element) {
-        return this.optional(element) || sin_number.length >= 9 &&
-            sin_number.match(/(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/);
-    }, "Please remove your SIN number.");
+
+    setTimeout(function() {
+        $.validator.addMethod("sinCA", function(sin_number, element) {
+            return this.optional(element) || sin_number.length >= 9 &&
+                sin_number.match(/(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/);
+        }, "Please remove your SIN number.");
+    }, 2000);
 
 
     $document.on("keyup", selector + " textarea", function(event) {

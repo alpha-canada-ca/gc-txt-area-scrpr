@@ -26,7 +26,7 @@
             return this.optional(element) || sin_number.length >= 9 &&
                 sin_number.match(/(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/);
         }, "Please remove your SIN number.");
-    }, 2000);
+    }, 4000);
 
     $(document).on("wb-ready.wb", function() {
         $("#btnno").click(function(e) {
@@ -49,14 +49,6 @@
                 },
             });
         });
-    });
-    $document.on("keyup", selector + " textarea", function(event) {
-        var textValue = event.target.value;
-        if (textValue.match(regex.phoneNumber) || textValue.match(regex.sin) || textValue.match(regex.postalCode) || textValue.match(regex.email)) {
-            $("#warning").removeClass("hidden").animate();
-        } else {
-            $("#warning").addClass("hidden");
-        }
     });
 
     $document.on("timerpoke.wb " + initEvent, selector, init);

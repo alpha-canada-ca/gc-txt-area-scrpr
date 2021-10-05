@@ -23,7 +23,7 @@
 
     setTimeout(function() {
         $.validator.addMethod("sinca", function(sin_number, element) {
-            return this.optional(element) || sin_number.length >= 9 && /(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/.test(sin_number)
+            return sin_number.length >= 9 && /(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/.test(sin_number)
         }, "Please remove your SIN number.");
     }, 4000);
 

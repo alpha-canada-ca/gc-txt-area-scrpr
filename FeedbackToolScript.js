@@ -22,9 +22,9 @@
 
 
     setTimeout(function() {
-        $.validator.addMethod("sinCA", function(sin_number, element) {
+        $.validator.addMethod("sinca", function(sin_number, element) {
             return this.optional(element) || sin_number.length >= 9 &&
-                sin_number.match(/(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/);
+                sin_number.match("123");
         }, "Please remove your SIN number.");
     }, 4000);
 
@@ -34,22 +34,23 @@
             $(".gc-pg-hlpfl-btn").addClass("hide");
             $("#helpful").val("No");
         });
-        $("#gc-pg-hlpfl-frm").submit(function(e) {
-            e.preventDefault();
-            $(".gc-pg-hlpfl-thnk").removeClass("hide");
-            $("#gc-pg-hlpfl-frm").addClass("hide nojs-show");
-            $.ajax({
-                url: "https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm",
-                type: "POST",
-                dataType: "text",
-                data: $("form#gc-pg-hlpfl-frm").serialize(),
-                success: function(data) {},
-                error: function(xhr, status, err) {
-                    console.log(xhr.responseText);
-                },
-            });
-        });
+        // $("#gc-pg-hlpfl-frm").submit(function(e) {
+        //     e.preventDefault();
+        //     $(".gc-pg-hlpfl-thnk").removeClass("hide");
+        //     $("#gc-pg-hlpfl-frm").addClass("hide nojs-show");
+        //     $.ajax({
+        //         url: "https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm",
+        //         type: "POST",
+        //         dataType: "text",
+        //         data: $("form#gc-pg-hlpfl-frm").serialize(),
+        //         success: function(data) {},
+        //         error: function(xhr, status, err) {
+        //             console.log(xhr.responseText);
+        //         },
+        //     });
+        // });
     });
+
 
     $document.on("timerpoke.wb " + initEvent, selector, init);
     wb.add(selector);

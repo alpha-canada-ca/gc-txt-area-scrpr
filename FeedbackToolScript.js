@@ -20,7 +20,7 @@
             }
         };
 
-    jQuery.validator.addMethod("sinCA", function(sin_number, element) {
+    $.validator.addMethod("sinCA", function(sin_number, element) {
         return this.optional(element) || sin_number.length >= 9 &&
             sin_number.match(/(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/);
     }, "Please remove your SIN number.");
@@ -34,7 +34,7 @@
             $("#warning").addClass("hidden");
         }
     });
- 
+
     $document.on("timerpoke.wb " + initEvent, selector, init);
     wb.add(selector);
 })(jQuery, window, wb);

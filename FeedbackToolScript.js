@@ -50,14 +50,7 @@
             });
         });
     });
-    $document.on("keyup", selector + " textarea", function(event) {
-        var textValue = event.target.value;
-        if (textValue.match(regex.phoneNumber) || textValue.match(regex.sin) || textValue.match(regex.postalCode) || textValue.match(regex.email)) {
-            $("#warning").removeClass("hidden").animate();
-        } else {
-            $("#warning").addClass("hidden");
-        }
-    });
+
 
     $document.on("timerpoke.wb " + initEvent, selector, init);
     wb.add(selector);

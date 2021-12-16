@@ -55,6 +55,7 @@ Stuff I could maybe improve:
                 <input type="hidden" name="themeopt" value="Theme - required - must use same value EN and FR">
                 <input type="hidden" name="sectionopt" value="Section - required but can be blank - same value EN and FR">
                 <input type="hidden" name="pageTitle" value="Page title (EN) - required">
+				<input type="hidden" name="submissionPage" value="Page url - required">
                 <fieldset class="gc-pg-hlpfl-btn chkbxrdio-grp row row-no-gutters d-flex align-items-center">
                     <legend class="col-xs-12 col-sm-7 col-md-8 text-center-xs-js mrgn-tp-sm"><span class="field-name">Did you find what you were looking for?</span></legend>
                     <div class="col-xs-2 col-sm-5 col-md-4 text-right nojs-show">
@@ -97,9 +98,9 @@ Stuff I could maybe improve:
                             </div>
                         </fieldset>
                         <div class="form-group">
-                            <label for="problem6" class="mrgn-tp-sm mrgn-bttm-0"><span class="field-name">Please provide more details (maximum 300 characters)</span></label>
+                            <label for="problem6" class="mrgn-tp-sm mrgn-bttm-0"><span class="field-name">Please provide more details </span></label>
                             <textarea id="problem6" aria-describedby="problem6-note" name="details" class="form-control full-width" maxlength="300"></textarea>
-                            <p id="problem6-note"><small>You will not receive a reply. Telephone numbers and email addresses will be removed.</small></p>
+                            <p id="problem6-note"><small><strong>You will not receive a reply. Telephone numbers and email addresses will be removed.</strong><br>(maximum 300 characters)</small></p>
                         </div>
                         <button type="submit" name="helpful" value="No" class="btn btn-primary" -submit>Submit</button>
                         <input type="hidden" name="problem" value="">

@@ -1,105 +1,118 @@
 ---
-title: Feedback Form 
-script:
-  - wb-frmvld2.js
-  - FeedbackToolScript.js
+{
+"altLangPage": "gc-page-success-new-fr.html",
+"altLangPrefix": "gc-page-success_this-var-is-broken-in-modern-gcweb",
+"breadcrumb": [ "this-var-is-broken-in-modern-gcweb" ],
+"breadcrumbs": [
+{ "title": "GCWeb home", "link": "https://wet-boew.github.io/GCWeb/index-en.html" },
+{ "title": "Provisional functionality", "link": "https://wet-boew.github.io/themes-dist/GCWeb/provisional-en.html" }
+],
+"css": ["https://use.fontawesome.com/releases/v5.8.1/css/all.css"],
+"dateModified": "2021-12-06",
+"description": "Feedback widget for Canada.ca",
+"language": "en",
+"title": "Page success widget (NEW) - Working example",
+"noReportProblem": "true"
+}
 ---
-<!-- START PAGE FEEDBACK WIDGET -->
+{% include alert-provisional.html siteroot="../../" %}
+
+<div class="wb-prettify all-pre hide"></div>
+
+<style>
+	@media screen and (max-width: 767px) {
+		.wb-enable .text-center-xs-js {
+			text-align: center;
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		.d-flex {
+			display: flex;
+		}
+
+		.align-items-center {
+			align-items: center;
+		}
+	}
+</style>
+
+<!--<p>Planned to eventually replace Report a problem. Uses multiple features: <code>wb-postback</code> and <code>data-wb-doaction</code> plugins, as well as <code>nojs-*</code> styles and Font Awesome.</p>-->
+
+<!--
+Stuff I could maybe improve:
+-Don't use a top margin on the share widget?
+-Should there be type 1 and type 2 variants (for yes/no + details vs yes/no-only)
+-Add spacing between legend and buttons in smaller views?
+-->
+
+<!--ISSUE: I don't hear a form beep in NVDA when I tab into this due to the parent figure, also don't hear anything along the lines of "out of figure/form" when I tab out of the figure. Maybe try updaing NVDA to see if it works better nowadays.-->
 <div class="row row-no-gutters mrgn-tp-xl">
-    <div class="col-sm-7 col-lg-6">
-        <section class="gc-pg-hlpfl provisional">
-            <div class="well mrgn-bttm-0">
-                <div class="wb-frmvld2">
-                   <form id="gc-pg-hlpfl-frm" action="/gc/services/generateemail" method="post" autocomplete="off" 
-                    class="provisional wb-postback" data-wb-postback="{&quot;success&quot;:&quot;.gc-pg-hlpfl-thnk&quot;
-                        ,&quot;content&quot;:&quot;#gc-pg-hlpfl-frm&quot;}">
-                    <form id="gc-pg-hlpfl-frm" action="#" method="post" autocomplete="off" data-wb-postback="{&quot;success&quot;:&quot;.gc-pg-hlpfl-thnk&quot;
-                        ,&quot;content&quot;:&quot;#gc-pg-hlpfl-frm&quot;}">
-                        <input type="hidden" name="institutionopt" value="Institution acronym - required - must use same value EN and FR" />
-                        <input type="hidden" name="themeopt" value="Theme - required - must use same value EN and FR" />
-                        <input type="hidden" name="language" value="Language - required - use EN or FR" />
-                        <input type="hidden" name="pageTitle" value="Page title EN - required" />
-                        <input type="hidden" name="submissionPage" value="Page URL - required" />
-                        <input type="hidden" name="sectionopt" value="Section - required but can be blank - must use same value EN and FR" />
-                        <input type="hidden" id="helpful" name="helpful" value="Yes" />
-                        <div class="gc-pg-hlpfl-btn">
-                            <div class="row row-no-gutters">
-                                <div class="col-xs-12 col-sm-7 mrgn-tp-sm">
-                                    <h2 class="mrgn-tp-sm h5">
-                                        Did you find what you were looking for?
-                                    </h2>
-                                </div>
-                                <div class="col-xs-8 col-sm-5 text-right">
-                                    <button id="btnyes" type="submit" value="Yes" class="btn btn-primary">
-                              Yes
-                            </button>
-                                    <button id="btnno" type="button" class="btn btn-primary mrgn-lft-sm nojs-hide">
-                              No
-                            </button>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="h3 hidden nojs-show">If not, tell us why:</p>
-                        <div class="gc-pg-hlpfl-no nojs-show">
-                            <fieldset>
-                                <legend class="h4 mrgn-tp-0 mrgn-bttm-md">
-                                    What was wrong?
-                                </legend>
-                                <div class="radio">
-                                    <label for="problem1">
-                              <input name="problem" id="problem1" type="radio" value="I can't find the information" data-gc-analytics-wtph-value="I can't find the information-Je ne peux pas trouver l'information" data-gc-analytics-collect="notPrivate"/>
-                              I can't
-                              <strong>find</strong>
-                              the information
-                            </label>
-                                </div>
-                                <div class="radio">
-                                    <label for="problem2">
-                              <input name="problem" id="problem2" type="radio" value="The information is hard to understand" data-gc-analytics-wtph-value="The information is hard to understand-L'information est difficile à comprendre" data-gc-analytics-collect="notPrivate"/>
-                              The information is hard to
-                              <strong>understand</strong>
-                            </label>
-                                </div>
-                                <div class="radio">
-                                    <label for="problem3">
-                              <input name="problem" id="problem3" type="radio" value="There was an error / something didn't work" data-gc-analytics-wtph-value="There was an error or something didn't work-Il y avait une erreur ou quelque chose ne fonctionnait pas" data-gc-analytics-collect="notPrivate"/>
-                              There was an error or something
-                              <strong>didn't work</strong>
-                            </label>
-                                </div>
-                                <div class="radio">
-                                    <label for="problem4">
-                              <input name="problem" id="problem4" type="radio" value="Other reason" data-gc-analytics-wtph-value="Other reason-Autre raison" data-gc-analytics-collect="notPrivate"/>
-                              Other reason
-                            </label>
-                                </div>
-                            </fieldset>
-                            <label for="details" class="mrgn-bttm-0">Please provide more details</label>
-                            <p class="small">
-                                <strong>You will not receive a reply. Telephone numbers and email addresses will be removed.</strong>
-                                <br/>
-                                <span class="small">Maximum 300 characters</span>
-                            </p>
-                            <textarea id="details" name="details" class="full-width" maxlength="300" required="required" data-rule-sinCA="true"></textarea>
-                            <div class="alert alert-danger hidden" id="warning">
-                                <p> You will not receive a reply. Telephone numbers and email addresses will be removed. </p>
-                            </div>
-                            <button type="submit" value="No" class="btn btn-primary mrgn-tp-md mrgn-bttm-sm">
-                          Submit
-                        </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="gc-pg-hlpfl-thnk hide">
-                    <p class="h6 mrgn-tp-sm mrgn-bttm-sm">
-                        <span class="far fa-check-circle text-success mrgn-rght-sm" aria-hidden="true"></span> Thank you for your feedback
-                    </p>
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="col-sm-3 col-sm-offset-1 col-lg-offset-3">
-        <div class="wb-share" data-wb-share='{"pnlId":"pnlShrPg", "lnkClass": "btn btn-default btn-block mrgn-tp-md"}'></div>
-    </div>
+	<div class="col-sm-7 col-lg-6">
+		<figure class="gc-pg-hlpfl well mrgn-bttm-0" aria-live="polite">
+			<figcaption class="wb-inv">Page feedback</figcaption>
+			<form id="gc-pg-hlpfl-frm" action="https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm" method="post" autocomplete="off" class="provisional wb-postback" data-wb-postback="{'success':'.gc-pg-hlpfl-thnk','content':'#gc-pg-hlpfl-frm'}">
+				<input type="hidden" name="institutionopt" value="Institution - required - must use same abbreviation value EN and FR">
+				<input type="hidden" name="themeopt" value="Theme - required - must use same value EN and FR">
+				<input type="hidden" name="sectionopt" value="Section - required but can be blank - same value EN and FR">
+				<input type="hidden" name="pageTitle" value="Page title (EN) - required">
+				<fieldset class="gc-pg-hlpfl-btn chkbxrdio-grp row row-no-gutters d-flex align-items-center">
+					<legend class="col-xs-12 col-sm-7 col-md-8 text-center-xs-js mrgn-tp-sm"><span class="field-name">Did you find what you were looking for?</span></legend>
+					<div class="col-xs-2 col-sm-5 col-md-4 text-right nojs-show">
+						<button type="submit" name="helpful" value="Yes" class="btn btn-primary" aria-describedby="why-note">Yes</button>
+					</div>
+					<div class="col-xs-12 col-sm-5 col-md-4 text-right text-center-xs-js nojs-hide">
+						<button type="submit" name="helpful" value="Yes" class="btn btn-primary">Yes</button>
+						<button type="button" class="btn btn-primary mrgn-lft-sm" data-wb-doaction="[
+						{'action':'removeClass','source':'.gc-pg-hlpfl-no','class':'nojs-show'},
+						{'action':'addClass','source':'.gc-pg-hlpfl-btn','class':'hide'}]">No</button>
+					</div>
+				</fieldset>
+				<p id="why-note" class="nojs-show mrgn-tp-lg mrgn-bttm-md"><strong>If not, tell us why below:</strong></p>
+				<!--NOTE: For noscript and basic HTML modes.-->
+				<div class="gc-pg-hlpfl-no nojs-show">
+					<p class="nojs-hide wb-inv"><strong>Tell us why below:</strong></p>
+					<!--NOTE: For JS mode after the transition (to instruct screen readers about what to do next).-->
+					<div aria-live="off">
+						<fieldset class="chkbxrdio-grp">
+							<legend><span class="field-name">What was wrong?</span></legend>
+							<div class="radio">
+								<label for="problem1">
+									<input name="problem" id="problem1" type="radio" value="I can't find the information"-value="I can't find the information-Je ne peux pas trouver l'information"> I can't <strong>find</strong> the information
+								</label>
+							</div>
+							<div class="radio">
+								<label for="problem2">
+									<input name="problem" id="problem2" type="radio" value="The information is hard to understand"-value="The information is hard to understand-L'information est difficile à comprendre"> The information is hard to <strong>understand</strong>
+								</label>
+							</div>
+							<div class="radio">
+								<label for="problem3">
+									<input name="problem" id="problem3" type="radio" value="There was an error / something didn't work"-value="There was an error or something didn't work-Il y avait une erreur ou quelque chose ne fonctionnait pas"> There was an error or something <strong>didn't work</strong>
+								</label>
+							</div>
+							<div class="radio">
+								<label for="problem4">
+									<input name="problem" id="problem4" type="radio" value="Other reason"-value="Other reason-Autre raison"> Other reason
+								</label>
+							</div>
+						</fieldset>
+						<div class="form-group">
+							<label for="problem6" class="mrgn-tp-sm mrgn-bttm-0"><span class="field-name">Please provide more details (maximum 300 characters)</span></label>
+							<textarea id="problem6" aria-describedby="problem6-note" name="details" class="form-control full-width" maxlength="300"></textarea>
+							<p id="problem6-note"><small>You will not receive a reply. Telephone numbers and email addresses will be removed.</small></p>
+						</div>
+						<button type="submit" name="helpful" value="No" class="btn btn-primary"-submit>Submit</button>
+						<input type="hidden" name="problem" value="">
+					</div>
+				</div>
+			</form>
+			<div class="gc-pg-hlpfl-thnk hide">
+				<p class="mrgn-tp-sm mrgn-bttm-0"><span class="far fa-check-circle text-success mrgn-rght-sm" aria-hidden="true"></span> Thank you for your feedback.</p>
+			</div>
+		</figure>
+	</div>
+	<div class="col-sm-3 col-sm-offset-1 col-lg-offset-3">
+		<div class="wb-share" data-wb-share="{'pnlId':'pnlShrPg', 'lnkClass': 'btn btn-default btn-block mrgn-tp-md'}"></div>
+	</div>
 </div>
-<!-- END PAGE FEEDBACK WIDGET -->

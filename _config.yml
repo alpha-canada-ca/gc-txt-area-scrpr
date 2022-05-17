@@ -1,10 +1,76 @@
-theme: jekyll-theme-gcweb
-title: Sample website with GCWeb Jekyll theme
+# Site configuration
+# 1. Files excluded from Jekyll builds
+# 2. Installed Gems
+# 3. Gem settings
+# 4. Jekyll settings
+# 5. Collections
+# 6. Jekyll collections settings
+# 7. Site settings
 
+# 1. Files excluded from Jekyll builds
+exclude:
+- README.md
+- CODE_OF_CONDUCT.md
+- CONTRIBUTING.md
+- screenshot.png
+- LICENSE*
+- SECURITY.md
+- CNAME
+- "*.tmp"
+- Gemfile
+- Gemfile.lock
+- gcweb-jekyll.gemspec
+- .jekyll-cache
+- node_modules
+- vendor/
 
-# page front matter defaults #
+# 2. Installed Gems
+
+# 3. Gem settings
+
+# 4. Jekyll settings
+compress_html:
+  clippings: all
+  comments:
+  ignore:
+    envs: []
+  blanklines: true
+  profile: false
+quiet: false
+timezone: America/Toronto # Timezone for blog posts and alike
+verbose: false
+
+# 5. Collections
+
+# 6. Jekyll collections settings
+
+# 7. Site settings
+analytics_adobe: ""
+assets: "https://wet-boew.github.io/themes-dist"
+baseurl: ""
+description:
+  en: "Jekyll variant for GCWeb theme" # English site description and default description
+  fr: "Adaption Jekyll du theme GCWeb" # French site description and default description
+
 defaults:
-  - scope:
-      path: "" # Ensure it's applied to all pages
+  -
+    scope:
+      path: ""
+      type: pages
     values:
       layout: default
+      share: true
+      sitemenu: true
+      sitesearch: true
+  -
+    scope:
+      path: "en/"
+    values:
+      lang: "en"
+  -
+    scope:
+      path: "fr/"
+    values:
+      lang: "fr"
+
+title: "GCWeb Jekyll" # Site name or title

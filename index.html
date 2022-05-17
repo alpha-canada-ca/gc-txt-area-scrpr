@@ -11,7 +11,7 @@
 "dateModified": "2021-12-06"
 "description": "Feedback widget for Canada.ca"
 "language": "en"
-"title": "Page success widget (NEW) - Working example"
+"title": "Page - Working example"
 "noReportProblem": "true"
 ---
 
@@ -43,3 +43,29 @@ Stuff I could maybe improve:
 -Should there be type 1 and type 2 variants (for yes/no + details vs yes/no-only)
 -Add spacing between legend and buttons in smaller views?
 -->
+<div class="wb-frmvld wb-init wb-frmvld-inited" id="wb-auto-4">
+    <form action="" method="post" novalidate="novalidate">
+        <input id="emailTemplateESDC" name="emailTemplate" type="hidden" value="esdc-edsc/national-seniors-council-contact-en">
+        <div class="form-group">
+            <label for="fname"><span class="field-name">First name</span> </label>
+            <input class="form-control" id="fname" name="fname" autocomplete="given-name">
+        </div>
+        <div class="form-group">
+            <label for="lname"><span class="field-name">Last name</span> </label>
+            <input class="form-control" id="lname" name="lname" autocomplete="family-name">
+        </div>
+        <div class="form-group">
+            <label for="eaddress" class="required"><span class="field-name">Email address</span> <strong class="required">(required)</strong> </label>
+            <input class="form-control" id="eaddress" name="eaddress" type="email" autocomplete="email" required="">
+        </div>
+        <div class="form-group">
+            <label for="subject1" class="required"><span class="field-name">Subject</span> <strong class="required">(required)</strong> </label>
+            <input class="form-control" id="subject1" name="subject1" required="">
+        </div>
+        <div class="form-group">
+            <label for="message" class="required"><span class="field-name">Enter your message</span> <strong class="required">(required)</strong> </label>
+            <textarea class="form-control" id="message" name="message" rows="10" cols="70" required=""></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button> <button type="reset" class="btn btn-default">Reset</button>
+    </form>
+<div aria-relevant="all" aria-live="polite" class="arialive wb-inv"></div></div>

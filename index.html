@@ -35,12 +35,17 @@
   }
 </style>
 
-<!--<p>Planned to eventually replace Report a problem. Uses multiple features: <code>wb-postback</code> and <code>data-wb-doaction</code> plugins, as well as <code>nojs-*</code> styles and Font Awesome.</p>-->
 
-<!--
-Stuff I could maybe improve:
--Don't use a top margin on the share widget?
--Should there be type 1 and type 2 variants (for yes/no + details vs yes/no-only)
--Add spacing between legend and buttons in smaller views?
--->
+<div class="wb-frmvld">
+    <form action="#" method="get" id="validationExample">
+        <fieldset>
+            <div class="form-group">
+                <label for="fname1" class="required"><span class="field-name">First name</span> <strong class="required">(required)</strong></label>
+                <input class="form-control" id="fname1" name="fname1" type="text" required="required" />
+            </div>
+            <label for="feedback" class="required"><span class="field-name">Leave some feedback</span> <strong class="required">(required)</strong></label>
+            <textarea id="feedback" name="details" class="full-width" required="required"></textarea>
+        </fieldset>
+    </form>
 
+</div>

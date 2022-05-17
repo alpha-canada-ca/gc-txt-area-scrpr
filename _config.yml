@@ -1,4 +1,4 @@
-remote_theme: wet-boew/gcweb-jekyll
+theme: jekyll-theme-gcweb
 title: Sample website with GCWeb Jekyll theme
 
 

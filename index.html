@@ -48,15 +48,15 @@ Stuff I could maybe improve:
     <form action="#" method="get" id="validation-example">
         <fieldset>
             <div class="form-group">
-                <label for="firstInput" class="required"><span class="field-name">Name</span> <strong class="required">(required)</strong></label>
+                <label for="firstInput"><span class="field-name">Name</span> <strong class="required">(required)</strong></label>
                 <input type="text" size="10" id="firstInput" name="firstInput" class="form-control" autocomplete="given-name" required="required" data-rule-minlength="2" />
             </div>
             <div class="form-group">
-                <label for="secondInput" class="required"><span class="field-name">Email</span><strong class="required">(required)</strong></label>
+                <label for="secondInput"> <span class="field-name"> Email </span> <strong class="required"> (required) </strong> </label>
                 <input type="password" size="10" id="secondInput" name="secondInput" class="form-control"  autocomplete="email" required="required" data-rule-minlength="2" />
             </div>
-            <label for="feedbackArea" class="required"><span class="field-name">Please provide feedback</span><strong class="required">(required)</strong></label>
-            <textarea id="feedbackArea" name="details" class="full-width" maxlength="300" class="required"></textarea>
+            <label for="feedbackArea"><span class="field-name">Please provide feedback</span><strong class="required">(required)</strong></label>
+            <textarea id="feedbackArea" name="details" class="full-width" maxlength="300" required="required"></textarea>
         </fieldset>
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-default">Reset</button>

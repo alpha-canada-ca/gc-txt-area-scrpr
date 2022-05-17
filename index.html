@@ -44,19 +44,26 @@ Stuff I could maybe improve:
 -Add spacing between legend and buttons in smaller views?
 -->
 
-<div>
-    <form role="form">
-        <div class="form-group">
-            <label for="firstInput">Email</label>
-            <input type="text" size="10" id="firstInput" name="firstInput" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label for="label-2-1">Label 2</label>
-              <input type="password" size="10" id="label-2-1" name="label-2-1" class="form-control" />
-           </div>
-
+<div class="wb-frmvld">
+    <form action="#" method="get" id="validation-example" name="validation-example">
+        <fieldset>
+            <div class="form-group">
+                <label for="firstInput" class="required"><span class="field-name">Name</span> <strong class="required">(required)</strong></label>
+                <input type="text" size="10" id="firstInput" name="firstInput" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="secondInput" class="required">Email<strong class="required">(required)</strong></label>
+                <input type="password" size="10" id="secondInput" name="secondInput" class="form-control" />
+            </div>
+            <label for="feedbackArea">Please provide more details</label>
+            <textarea id="feedbackArea" name="details" class="full-width" maxlength="300"></textarea>
+        </fieldset>
+        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Reset</button>
     </form>
 </div>
+
+
 
 
 <!-- <div class="wb-frmvld wb-init wb-frmvld-inited" id="wb-auto-4">

@@ -16,11 +16,12 @@ $(document).on("wb-ready.wb", function () {
   var device = getDeviceType();
   console.log(device);
 
+  $("input[name='deviceType']").val(device);
+
   $("#btnno").click(function (e) {
     $(".gc-pg-hlpfl-no").removeClass("nojs-show");
     $(".gc-pg-hlpfl-btn").addClass("hide");
     $("#helpful").val("No");
-    $("input[name='deviceType']").val(device);
   });
   $("#gc-pg-hlpfl-frm").submit(function (e) {
     e.preventDefault();

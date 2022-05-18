@@ -13,14 +13,14 @@ $(document).on("wb-ready.wb", function () {
     }
     return "desktop";
   };
-  var test = getDeviceType();
-  console.log(test);
+  var device = getDeviceType();
+  console.log(device);
 
   $("#btnno").click(function (e) {
     $(".gc-pg-hlpfl-no").removeClass("nojs-show");
     $(".gc-pg-hlpfl-btn").addClass("hide");
     $("#helpful").val("No");
-    $("#deviceTyoe").val(test);
+    $("input[name='deviceType']").val(device);
   });
   $("#gc-pg-hlpfl-frm").submit(function (e) {
     e.preventDefault();

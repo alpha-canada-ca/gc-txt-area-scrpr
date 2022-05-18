@@ -13,7 +13,7 @@ const getDeviceType = () => {
   }
   return "desktop";
 };
-
+//
 $(document).on("wb-ready.wb", function () {
   $("#btnno").click(function (e) {
     $(".gc-pg-hlpfl-no").removeClass("nojs-show");

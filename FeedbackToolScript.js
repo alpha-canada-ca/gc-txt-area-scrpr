@@ -15,7 +15,7 @@
       return "desktop";
     };
     
-    $(#deviceType).val(getDeviceType());
+    $('#deviceType').val(getDeviceType());
 
 
     "use strict";

@@ -1,32 +1,34 @@
-
-const getDeviceType = () => {
-  const ua = navigator.userAgent;
-  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-    return "tablet";
-  }
-  if (
-    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
-      ua
-    )
-  ) {
-    return "mobile";
-  }
-  return "desktop";
-};
-
 $(document).on("wb-ready.wb", function () {
+  const getDeviceType = () => {
+    const ua = navigator.userAgent;
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+      return "tablet";
+    }
+    if (
+      /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+        ua
+      )
+    ) {
+      return "mobile";
+    }
+    return "desktop";
+  };
+  var test = getDeviceType();
+  console.log(test);
+
   $("#btnno").click(function (e) {
     $(".gc-pg-hlpfl-no").removeClass("nojs-show");
     $(".gc-pg-hlpfl-btn").addClass("hide");
     $("#helpful").val("No");
-    $("#deviceTyoe").val(getDeviceType());
+    $("#deviceTyoe").val(test);
   });
   $("#gc-pg-hlpfl-frm").submit(function (e) {
     e.preventDefault();
     $(".gc-pg-hlpfl-thnk").removeClass("hide");
     $("#gc-pg-hlpfl-frm").addClass("hide nojs-show");
     $.ajax({
-      url: "https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm",
+      url:
+        "https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm",
       type: "POST",
       dataType: "text",
       data: $("form#gc-pg-hlpfl-frm").serialize(),
